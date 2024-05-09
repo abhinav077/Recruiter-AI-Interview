@@ -1,96 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Mockvue</title>
+        <title>Recruiter</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
         <link rel="stylesheet" href="{{ url_for('static',filename='css/Main_page.css') }}">
-        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        
         </head>
     <body>
-    <div class="navbar">
-                <div class="logo">
-                    <img src="{{ url_for('static', filename='Mockvue_logo.png') }}" alt="Logo">
+       
+        <header>
+    
+            <div class="header-body-section">
+                <div class="image-container">
+                <img src="/static/bluebackground.png">
                 </div>
-                <div class="rectangle"></div>
-                <div class="links">
-                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-                    <a class="nav-link" onclick="location.href='#section4'">About</a>
+                <div class="nav">
+                    <div class="container">
+                        <div class="logo">
+                        <img class="logo-img" src="/static/image.png">
+                        
+                        </div>
+                        
+                    </div>
+                    <div class="container12">
+                    <p class="text1">Recruiter : The future of INTERVIEWS</p>
+                    <p class="text2">A live, conversational interviewing tool that provides real-time evaluations to easily <br>
+                    identify top performers. No more manual screening - say hello to smarter recruiting.</p>
+                    <div class="button1-class">
+                        <a href="{{ url_for('text_test_instructions') }}" class="button1">WRITTEN</a>
+	                    <a href="{{ url_for('video_test_instructions') }}" class="button1"> VIDEO </a>
+                    </div> 
                 </div>
+             </div> 
+            
+             <div class="container2">
+                <div class="container2-section1">
+                    <p class="text3">Uncover the power of Recruiter</p>
+                    <p class="text4">Say goodbye to manual screening with AI recruiting solutions. Discover the benefits firsthand.</p>
+                    
+                </div>
+                <div class="container2-section2" >
+                   <img src="/static/container2.jpeg">
+                </div>
+             </div>
+    
+             <div class="container3">
+                <div class="container3-section1">
+                    <img src="/static/African.png">
+                </div>
+                <div class="container3-section2">
+                    <img src="/static/arrow.png">
+                </div>
+                <div class="container3-section3">
+                    <p class="text5">Evaluate your interview performance</p>
+                    <p class="text6">Your interview performance will be assessed on multiple criteria, including the accuracy and depth of your responses, communication skills, technical knowledge, and behavioral analysis. Following the interview, you'll receive a performance report with scores for each criterion, an overall rating, and personalized feedback. This report will provide insights into your strengths and areas to enhance.</p>
+                </div>
+                <div class="Green-box"></div>
+             </div>
+    
+        <div class="container4-section1">
+            <p>Your Personal AI Interviewer</p>
+            <img class="blue-line" src="/static/blueline.png">
+            <div class="container4-section1-img">
+                <img src="/static/phonegirl.png">
             </div>
-        <div class="section hidden" id="section1">
-            <!--<img src="{{ url_for('static', filename='Mainpage_Background.png') }}" alt="BG_1">-->
-            <div style="display: flex; justify-content: space-between;">
-                <div id="section1_text">
-                    <p class="section1_title">MOCKVUE</p>
-                    <p class="section1_tagline">AI BASED MOCK JOB</p>
-                    <p class="section1_tagline">INTERVIEW SYSTEM</p>
-                    <p class="section1_text">We aim to create a user friendly environment for us</p>
-                    <p class="section1_text">sers that have no prior experience of job interviews.</p>
-                    <p class="section1_text">We hope our users, using our product can identify t-</p>
-                    <p class="section1_text">he areas that they lack and can improve their skills </p>
-                    <p class="section1_text">with the help of the score generated in the end.</p>
-                    <div id="mainpage_buttons">
-                        <a href="{{ url_for('text_test_instructions') }}" class="btn">WRITTEN</a>
-	                    <a href="{{ url_for('video_test_instructions') }}" class="btn"> VIDEO </a>
+        </div>
+        
+            <div class="container4-section2-1">
+                <div class="blue-container">Customizable interview questions for various job roles.</div>
+                <div class="blue-container">Real-time evaluation of interviewer's performance.</div>
+                <div class="blue-container">Detailed performance reportswith personalized feedback.</div>
+            </div>
+                
+           
+            <div class="container4-section2-2">
+                <div class="blue-container">Behavioral analysis for assessing personality traits.</div>
+                <div class="blue-container">Scaring based on correctness,depth,and communication skills.</div>
+                <div class="blue-container">User-friendly interface for seamless interview experience.</div></div>
+            </div>
+    
+    
+        <div class="container5">
+            <p>A simple four step process</p>
+            <div class="container5-section1">
+                <div class="container5-section1-1"> 
+                    <div class="step">Step 1</div>
+                    <div class="step-detail">
+                        Select job role and start interview.
                     </div>
                 </div>
-                <div id="section1_image">
-                    <img src="{{ url_for('static', filename='Mainpage_section1.png') }}" alt="Logo">
+               
+                <div class="container5-section1-1"> 
+                    <div class="step">Step 2</div>
+                    <div class="step-detail">
+                    Answer job-specific questions. AI evaluates answers in real-time
+                    </div>
                 </div>
+                <div class="container5-section1-1">
+                <div class="step"> Step 3</div> 
+                <div class="step-detail">
+                    Recieve detailed performance report with personalized feedback instantly.
+                </div>
+                </div>
+                <div class="container5-section1-1">
+                    <div class="step">Step 4</div>
+                    <div class="step-detail">
+                    Improve with insights on correctness depth
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div class="container6">
+            <div class="container6-section1">
+                <p>Make your next job interview stress free</p>
+            </div>
+            <div class="container6-section2">
+                <p>Without Interviews by AI</p>
+        <div class="container6-section2-1">
+            <div class="container6-section2-2">
+            <img src="/static/dangerous.svg" class="cross-container"></img><p> Unprepared</p>
+            </div>
+            <div class="container6-section2-2">
+             <img src="/static/dangerous.svg" class="cross-container"></img><p>Nervous</p>
+            </div>
+    
+            <div class="container6-section2-2">
+             <img src="/static/dangerous.svg" class="cross-container"></img><p>Ghosted</p>
+            </div>    
+             
+     </div>
+    </div>
+    <div class="container6-section3">
+        <p>Without Interviews by AI</p>
+    <div class="container6-section2-1">
+    <div class="container6-section3-2">
+    <img src="/static/Icon check box.png" class="cross-container"></img><p>Organized and ready</p>
+    </div>
+    <div class="container6-section3-2">
+     <img src="/static/Icon check box.png" class="cross-container"></img><p>Confident answers</p>
+    </div>
+    
+    <div class="container6-section3-2">
+     <img src="/static/Icon check box.png" class="cross-container"></img><p>Recieve final offers</p>
+    </div>    
+     
+    </div>
+    </div>
+    
+    
+    <div class="container7">
+        <div class="container7-section1">
+            <img src="/static/logo.png">
+            <p>Recruiter</p>
+        </div>
+        <div class="container7-section2">
+            <img src="/static/instagram-square.svg">
+            <img src="/static/facebook-square.svg">
+            <img src="/static/linkedin.svg">
+        </div>
+    </div>
                 
-            </div>
-        </div>
+    <div class="last-container">
+        <p>Privacy Policy</p>
+        <p> Terms&Conditions </p>
+        <p>Contact Us</p>
+    </div>
+    </div>
 
-        <div class="section hidden" id="section2">
-        <div class="section2_text">
-            <p class="section2n3_title">WHAT WE DO</p>
-            <p class="section2n3_tagline">OUR OFFER</p>
-            <p class="section2n3_text">One big aim of our project will be to completely avoid bias. Interview bias</p>
-            <p class="section2n3_text">occurs when the interviewer judges a candidate not only on their skills</p>
-            <p class="section2n3_text">and competencies but on unspoken or unconscious criteria hence making</p>
-            <p class="section2n3_text">the interview less objective. Our web application will judge candidates pu-</p>
-            <p class="section2n3_text">rely on the basis of their competence.</p>
-        </div>
-            <div style="display: flex;" class="section2imgs">
-                <img src="{{ url_for('static', filename='Mainpage_section21.png') }}" alt="Logo">
-                <img src="{{ url_for('static', filename='Mainpage_section22.png') }}" alt="Logo">
-                <img src="{{ url_for('static', filename='Mainpage_section23.png') }}" alt="Logo">
-            </div>
-            <div id="section2_underimage_text">
-                <p>PRACTICE</p>
-                <p>QUIZ</p>
-                <p>LEARN</p>
-            </div>
-        </div>
+       
 
-        <div class="section hidden" id="section3">
-            <div id="section3_text">
-                <p class="section2n3_title">LEARN MORE</p>
-                <p class="section2n3_tagline">FEATURES</p>
-            </div>
-            <div style="display: flex;" class="section3imgs">
-                <img src="{{ url_for('static', filename='Mainpage_section31.png') }}" alt="Logo">
-                <img src="{{ url_for('static', filename='Mainpage_section32.png') }}" alt="Logo">
-                <img src="{{ url_for('static', filename='Mainpage_section33.png') }}" alt="Logo">
-            </div>
-        </div>
-
-        <div class="section hidden" id="section4">
-            <div style="display: flex;">
-                <div style="display: flex" class="section4_left">
-                    <img src="{{ url_for('static', filename='Mainpage_section41.png') }}" alt="Logo">
-                    <img src="{{ url_for('static', filename='Mainpage_section42.png') }}" alt="Logo">
-                    <img src="{{ url_for('static', filename='Mainpage_section43.png') }}" alt="Logo">
-                </div>
-                <div class="section4_right">
-                    <p>LEARN</p>
-                    <p>PRACTICE</p>
-                    <p>GROW</p>
-                </div>
-            </div>
-        </div>
-
-        <script type="text/javascript" src="{{ url_for('static',filename='script/Main_page.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static',filename='script/Main_page.s') }}"></script>
     </body>
 </html>

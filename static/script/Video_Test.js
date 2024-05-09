@@ -11,6 +11,7 @@ let timerInterval;
 
 let question_number = 0;
 
+
 let recorder;
 let chunks = [];
 
@@ -28,7 +29,7 @@ function stopCamera() {
   .then(response => response.text())
   .then(message => console.log(message));
   document.getElementById('video-stream').src = "";
-}
+} 
 
 
 function startRecording() {

@@ -7,6 +7,21 @@ body {
   margin: 0;
   font-family:arial;
 }
+.nav{
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  background-color: #0D0221;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.logo-img{
+  padding-top: 10%;
+  padding-left: 50%;
+  width: 100%;
+  height: 70%;
+}
 
 div.section 
 {
@@ -20,7 +35,7 @@ div.section
 #section1{
   /* background-color: #fad390; */
   display: grid;
-  background-image: url("../Mainpage_Background.png");
+  
   background-size: cover;
   background-position: center;
   margin: 0px;
@@ -28,58 +43,12 @@ div.section
 }
 
 
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  width: 100%;
-  /* border-bottom: 1px solid #ccc; */
-  background-color: #f4efe9;
-  position: absolute;
-}
 
-.logo {
-  flex-shrink: 0;
-}
 
-.logo img {
-  height: 90px;
-}
 
-.links {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
-.links a {
-  margin: 0 20px;
-  color: #5d5e70;
-  text-decoration: none;
-  font-family: "LEMON MILK";
-  font-weight: 100;
-  font-size: 3rem;
-}
-
-.links a:hover {
-  color: #954f3a;
-}
-
-.links a.active {
-  font-weight: 400;
-}
-
-.links::before {
-  content: "";
-  display: block;
-  height: 100%;
-  width: 1px;
-  margin-right: 20px;
-}
 
 .rectangle {
-  width: 1403px;
+  width: 100vw;
   height: 5px;
   background-color: #5d5e70;
   margin: 20px;
@@ -95,19 +64,19 @@ text-align: center;
 #timer-container {
   margin-top: 0px;
   width: 100%;
-  height: 20px;
+  height: 30px;
   background-color: lightgray;
 }
 
 #timer {
   height: 100%;
-  background-color: #954f3a;
+  background-color: #649bb3;
 }
 
 
 #question{
-  color: #f4efe9;
-  font-family: "LEMON MILK";
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   font-size: 2rem;
 }
@@ -118,31 +87,28 @@ text-align: center;
   padding-left: 0px;
 }
 
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 50px;
-  border: 4px solid #954f3a;
-  color: #954f3a;
-  background: transparent;
-  font-family: "LEMON MILK";
-  font-size: 1rem;
-  font-weight:lighter;
-  text-align: center;
+
+.button1{
+ 
+  border-width: 1px;
+  color: white;
+  font-family:"Montserrat", sans-serif ;
+  font-weight: 600;
+  font-size: 100%;
+  padding: 20px 22px 20px 22px;
+  background-color: rgb(4, 4, 4);
+  border-color: white;
+  border-radius: 16px;
+  margin-top: 80px;
+  border-style: solid;
+  width: 20%;
   text-decoration: none;
-  transition: all 0.3s ease;
-  margin: 20px;
-  width: 150px; /* set width of buttons */
-height: 80px; 
 }
-.btn:hover {
-  background: #954f3a;
-  color: #fff;
-  border-color: #954f3a;
+.button1:hover{
+  background-color: rgb(50, 60, 136);
+  color: #000000;
+  transition: opacity s;
 }
 
 
-img {
-  display: block;
-  margin: auto;
-}
+

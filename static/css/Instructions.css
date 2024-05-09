@@ -1,5 +1,5 @@
 html{
-    scroll-snap-type : y mandatory;
+  
     font-size: 100%;
 }
 
@@ -8,6 +8,21 @@ body {
     font-family:arial;
 }
 
+.nav{
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  background-color: #0D0221;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.logo-img{
+  padding-top: 10%;
+  padding-left: 50%;
+  width: 100%;
+  height: 70%;
+}
 div.section 
 {
     /* padding: 60px 40px; */
@@ -20,32 +35,37 @@ div.section
 #section1{
     /* background-color: #fad390; */
     display: grid;
-    background-image: url("../Mainpage_Background.png");
     background-size: cover;
     background-position: center;
     margin: 0px;
     padding: 0px;
 }
+.button1{
+ 
+  border-width: 1px;
+  color: white;
+  font-family:"Montserrat", sans-serif ;
+  font-weight: 600;
+  font-size: 100%;
+  padding: 20px 22px 20px 22px;
+  background-color: rgb(4, 4, 4);
+  border-color: white;
+  border-radius: 16px;
+  margin-top: 80px;
+  border-style: solid;
+  width: 125%;
+  text-decoration: none;
+}
+.button1:hover{
+  background-color: rgb(151, 155, 184);
+  color: #000000;
+  transition: opacity s;
+}
 
 
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100px;
-    padding: 0 4px;
-    /* border-bottom: 1px solid #ccc; */
-    background-color: #f4efe9;
-    position: absolute;
-  }
   
-  .logo {
-    flex-shrink: 0;
-  }
   
-  .logo img {
-    height: 90px;
-  }
+ 
   
   .links {
     display: flex;
@@ -85,47 +105,27 @@ div.section
     margin: 20px;
   }
 
-  .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 50px;
-    border: 4px solid #954f3a;
-    color: #954f3a;
-    background: transparent;
-    font-family: "LEMON MILK";
-    font-size: 2rem;
-    font-weight:lighter;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    margin: 20px;
-    width: 150px; /* set width of buttons */
-	height: 43px; 
-}
-.btn:hover {
-    background: #954f3a;
-    color: #fff;
-    border-color: #954f3a;
-}
+  
 
 
 #section1{
-  padding-top: 100px;
+  padding-top: 0px;
   text-align: center;
 }
 
 .section_title{
-    color: #954f3a;
-    font-family: "LEMON MILK";
+    color: #0D0221;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bolder;
     font-weight: bold;
     font-size: 6rem;
     margin-bottom: -20px;
 }
 
 .section_text{
-    padding-top: 20px;
-    color: #f4efe9;
-    font-family: "LEMON MILK";
+    padding-top: 10px;
+    color: #000000;
+    font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-size: 1.05rem;
     text-align: left;
@@ -133,12 +133,7 @@ div.section
 }
 
 .hidden_ins{
-    opacity: 0;
-    filter: blur(5px);
-    transition: all 1s;
+
+    font-family: "Montserrat", sans-serif;
   }
   
-.show_ins{
-    opacity: 1;
-    filter: blur(0);
-}
