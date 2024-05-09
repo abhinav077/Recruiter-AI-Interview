@@ -1,35 +1,22 @@
-"""
-This module contains a Flask server implementation for handling text and video-based questions and answers.
-"""
-
-from __future__ import print_function # In python 2.7
-import numpy as np
-import pickle
 import os
-from flask import Flask,redirect,url_for,render_template,request,jsonify
+from flask import Flask,render_template,request,jsonify
 from flask import Response
-import time
 import os
-# !python -m spacy download en_core_web_md
 import spacy
 nlp = spacy.load("en_core_web_md")
 import cv2
-import subprocess
 from deepface import DeepFace
 import pandas as pd
-import json
-import sys
 from werkzeug.utils import secure_filename
 import librosa
 import soundfile as sf
-import speech_recognition as speechrecognizer
 import speech_recognition as sr
-
-import math
 
 
 
 app = Flask(__name__)
+
+
 df = pd.read_csv('data/normalized_dataset.csv')
 similarities = []
 Questions_Arr = []
@@ -68,25 +55,19 @@ def sentences_similarity(sentence1,sentence2):
 
 @app.route('/')
 def index():
-    """
-    Render the main page.
-    """
     global similarities
     global Questions_Arr
     global Correct_Answer_Arr
     global User_Answers
     global All_Text_Details
+    global emotion_counts
+    global All_Video_Details
 
     similarities = []
     Questions_Arr = []
     Correct_Answer_Arr = []
     User_Answers = []
-    All_Text_Details = []
-
-    global emotion_counts
-    global All_Video_Details
-
-
+    All_Text_Details = []  
     All_Video_Details = []
     emotion_counts = {
         'angry': 0,
@@ -133,66 +114,39 @@ def home():
 
 @app.route('/about')
 def about():
-    """
-    Render the about page.
-    """
     return render_template('Main_page.html')
 
 @app.route('/text_test_instructions')
 def text_test_instructions():
-    """
-    Render the instructions for the text test.
-    """
     return render_template('Instructions_text.html')
 
 @app.route('/video_test_instructions')
 def video_test_instructions():
-    """
-    Render the instructions for the video test.
-    """
     return render_template('Instructions_video.html')
 
 @app.route('/Text_Test')
 def Text_Test():
-    """
-    Render the text test page.
-    """
     return render_template('Text_Test.html')
 
 @app.route('/Text_Test_Results')
 def Text_Test_Results():
-    """
-    Render the text test results page.
-    """
     return render_template('Text_Test_Results.html')
 
 @app.route('/Video_Test')
 def Video_Test():
-    """
-    Render the video test page.
-    """
     return render_template('Video_Test.html')
 
 @app.route('/Video_Test_Results')
 def Video_Test_Results():
-    """
-    Render the video test results page.
-    """
     return render_template('Video_Test_Results.html')
 
     
 @app.route('/favicon.ico')
 def favicon():
-    """
-    Serve the favicon.
-    """
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/Questions')
 def Text_Questions():
-    """
-    Get random questions from the dataset.
-    """
     global Questions_Arr
     global Correct_Answer_Arr
     random_rows = df.sample(n=10)
@@ -202,9 +156,6 @@ def Text_Questions():
 
 @app.route('/Text_Answers/<int:Qindex>', methods=['POST'])
 def text_answers(Qindex):
-    """
-    Receive and process user answers for text questions.
-    """
     global All_Text_Details
     global Questions_Arr
     global Correct_Answer_Arr
@@ -219,17 +170,10 @@ def text_answers(Qindex):
     return jsonify(answer)
 
 def allowed_file(filename):
-    """
-    Check if the file extension is allowed.
-    """
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/upload-audio/<int:Qindex>', methods=['POST'])
 def upload_audio(Qindex):
-    """
-    Handle audio file upload and process it.
-    """
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'}), 400
 
@@ -242,12 +186,9 @@ def upload_audio(Qindex):
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))        
         audio, speechrecognizer = librosa.load("uploads/audio"+str(Qindex)+".mp3")
         sf.write("uploads/audio"+str(Qindex)+".wav", audio, speechrecognizer)
-        # open the audio file using the recognizer  
         r = sr.Recognizer()
         with sr.AudioFile("uploads/audio"+str(Qindex)+".wav") as source:
-            # listen to the file and store the audio data in a variable
             audio_data = r.record(source)
-        # use the recognizer to convert speech to text
         text = r.recognize_google(audio_data)
         os.remove("uploads/audio"+str(Qindex)+".mp3")
         os.remove("uploads/audio"+str(Qindex)+".wav")
@@ -287,7 +228,6 @@ def video_results():
 
 @app.route('/text_results')
 def text_results():
-    # All_Text_Details_temp = []
     All_Text_Details_temp = All_Text_Details    
     return jsonify(All_Text_Details_temp)
 
@@ -304,11 +244,7 @@ def generate_frames():
         ret, buffer = cv2.imencode('.jpg', frame)
         frame_copy = frame
         frame = buffer.tobytes()
- 
-        # convert to grayscale
         gray = cv2.cvtColor(frame_copy, cv2.COLOR_BGR2GRAY)
-
-        # detect faces in the image
         faces = faceCascade.detectMultiScale(
             gray,
             scaleFactor=1.3,
@@ -317,11 +253,8 @@ def generate_frames():
             flags=cv2.CASCADE_SCALE_IMAGE
         )
 
-        # loop over faces
         for (x, y, w, h) in faces:
-            # extract face
             face = frame_copy[y:y+h, x:x+w]
-            # recognize emotion if a face is detected
             if len(face) > 0:
                 try:
                     result = DeepFace.analyze(face, actions=['emotion'], enforce_detection=True)
@@ -331,7 +264,6 @@ def generate_frames():
                         no_count['no_emotion'] += 1
                 except ValueError as err:
                     emotion_counts['no_face'] += 1
-            # update the no_face count if no face is detected
             else:
                 emotion_counts['no_face'] += 1
 
@@ -356,7 +288,7 @@ def start_again():
     global camera
     if camera is None:
         camera = cv2.VideoCapture(0)
-    while not camera.isOpened():  # Wait until the camera is ready
+    while not camera.isOpened():
         pass
     return 'Camera started'
 
