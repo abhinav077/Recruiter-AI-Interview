@@ -21,34 +21,56 @@
         </head>
     </head>
     <body>
-        <div class="nav">
-            
-            <div class="logo">
-            <img class="logo-img" src="/static/image.png">
-            </div>
-            
-        </div> 
-    </div>
         
-    
-        
-        <div class="section" id="section1">
-            <div class="hidden_ins">                    
-                <p class="section_title">INSTRUCTIONS</p>
-                <p class="section_text">☆ Look straight at the camera.</p>
-                <p class="section_text">☆ Make sure you are in a well lit environment.</p>
-                <p class="section_text">☆ Make sure there is no background noise.</p>
-                <p class="section_text">☆ Speak with clarity.</p>
-                <p class="section_text">☆ Before answering every question, use the phrase "for this question".</p>
-                <p class="section_text">☆ You will have total of 10 questions.</p>
-                <p class="section_text">☆ You will have total of 10 minutes to answer all questions.</p>
-                
+        <div class="box">   
+            <div class="section" id="section1">
+                <div class="hidden_ins">                    
+                    <p class="section_title">Instructions for Video Interview</p>
+                    <p class="section_text">☆ Read the question carefully before answering.</p>
+                    <p class="section_text">☆ You will have a total of 10 questions.</p>
+                    <p class="section_text">☆ For each question you will have one minute to answer.</p>
+                    <p class="section_text">☆ Timer can be seen below the navbar. The bar represents the time remaining.</p>
+                    <p class="section_text">☆ Failure to answer the question within the time limit will be marked as 0.</p>
+                    <p class="section_text">☆ Answers should be to the point.</p>
+                    <p class="section_text">☆ Pay special attention to the grammar.</p>
+                </div>                
             </div>
-            <div class="button1-class">
-                <a href="{{ url_for('Video_Test') }}" class="button1">PROCEED</a></div>
-                </div>
+
+           
         </div>
+        
+        <div class="container3">
+            <div class="hello"><img src="/static/pattern.jpg" alt="" class="four">
+                
+                <div class="align">
+                    
+            
+            <p class="details2">Choose the role you're interviewing for:</p>
+            <div class="dropdown">
+                <div class="select">
+                    <span class="selected">Role Search</span>
+                    <div class="caret">
+                    </div>
+                </div>
+                <ul class="menu">
+                    <li>AI/ML</li>
+                </ul>
+            </div>
+                <div class="button1-class">
+                    <a href="{{ url_for('Video_Test') }}" class="button1">PROCEED</a>
+                </div>
+            </div>
+        
+            </div>
+        </div>
+        
+        
+        
+
+       
+
+       
+        <script type="text/javascript" src="{{ url_for('static',filename='script/candidateinfo.js') }}"></script>
         
     </body>
 </html>
-

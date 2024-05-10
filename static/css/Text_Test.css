@@ -32,13 +32,11 @@ div.section
 }
 
 #section1{
-    /* background-color: #fad390; */
     display: grid;
-    background-image: url("../Mainpage_Background.png");
     background-size: cover;
     background-position: center;
     margin: 0px;
-    padding: 0px;
+    padding: 0px;   
 }
 
   .rectangle {
