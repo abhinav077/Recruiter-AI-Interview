@@ -44,9 +44,6 @@ emotion_counts = {
 faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 def sentences_similarity(sentence1,sentence2):
-    """
-    Calculate the similarity between two sentences using spaCy.
-    """
     doc1 = nlp(sentence1)
     doc2 = nlp(sentence2)
     similarity = doc1.similarity(doc2)
@@ -187,11 +184,12 @@ def upload_audio(Qindex):
         audio, speechrecognizer = librosa.load("uploads/audio"+str(Qindex)+".mp3")
         sf.write("uploads/audio"+str(Qindex)+".wav", audio, speechrecognizer)
         r = sr.Recognizer()
-        with sr.AudioFile("uploads/audio"+str(Qindex)+".wav") as source:
-            audio_data = r.record(source)
-        text = r.recognize_google(audio_data)
-        os.remove("uploads/audio"+str(Qindex)+".mp3")
-        os.remove("uploads/audio"+str(Qindex)+".wav")
+        with sr.AudioFile("uploads/audio"+str(Qindex)+".mp3") as source:
+            r.adjust_for_ambient_noise(source, duration = 2)
+            audio_data = r.listen(source)
+            text = r.recognize_google(audio_data)
+            os.remove("uploads/audio"+str(Qindex)+".mp3")
+            os.remove("uploads/audio"+str(Qindex)+".wav")
         global Questions_Arr
         global Correct_Answer_Arr
         global All_Video_Details
